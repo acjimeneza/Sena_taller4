@@ -33,6 +33,17 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "100m"
+          volumeMounts:
+            - name: configuration-from-cm
+              mountPath: app/Configuration/appsettings.Development.json
+              subPath: appsettings.Development.json
+      volumes:
+        - name: configuration-from-cm
+          configMap:
+            name: simple-configmap
+            items:
+              - key: "appsettings.Development.json"
+                path: "appsettings.Development.json"
 ---
 apiVersion: v1
 kind: Service

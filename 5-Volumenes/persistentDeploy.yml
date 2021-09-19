@@ -33,6 +33,13 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "100m"
+          volumeMounts:
+            - mountPath: /app/data
+              name: persistent-data
+      volumes:
+        - name: persistent-data
+          persistentVolumeClaim:
+            claimName: base-volume-claim
 ---
 apiVersion: v1
 kind: Service
