@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  urlMicroservice: 'http://ms-sena:5000'
+  urlMicroservice: 'http://localhost:5000'
 };
